@@ -1,3 +1,19 @@
-<h2 id="title">Welcome to Ember</h2>
+<p>
+  Switch to:
+  <button type="button" {{on "click" (fn this.switchLocale "en-US")}}>en-US</button>
+  <button type="button" {{on "click" (fn this.switchLocale "it-IT")}}>it-IT</button>
+  <button type="button" {{on "click" (fn this.switchLocale "pl-PL")}}>pl-PL</button>
+</p>
 
-{{outlet}}
+<p>
+  <input
+    type="number"
+    value={{this.tabCount}}
+    min={{1}}
+    max={{10}}
+    {{on "input" this.updateTabCount}}
+  />
+</p>
+
+<p>{{t "tabs-close-button"}}</p>
+<p>{{t "tabs-close-tooltip" tabCount=this.tabCount}}</p>
